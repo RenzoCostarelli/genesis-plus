@@ -1,0 +1,20 @@
+---
+const clients = ["Nombre del cliente 01", "Nombre del cliente 02", "Nombre del cliente 03", "Nombre del cliente 04"];
+---
+
+<section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+	<div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+		<div>
+			<p class="mb-3 text-xs font-bold tracking-[0.2em] text-turquesa uppercase">Clientes</p>
+			<h2 class="font-heading text-2xl font-bold text-azul-profundo sm:text-3xl">Espacios que nos eligen.</h2>
+		</div>
+		</div>
+
+	<div class="mt-12 grid gap-x-10 gap-y-6 border-t border-celeste-niebla pt-6 sm:grid-cols-2">
+		{
+			clients.map((client) => (
+				<p class="border-b border-celeste-niebla pb-6 text-sm font-semibold text-azul-profundo/50">{client}</p>
+			))
+		}
+	</div>
+</section>

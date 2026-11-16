@@ -1,0 +1,78 @@
+---
+const services = [
+  {
+    number: "01",
+    title: "Edificios y consorcios",
+    tags: ["Accesos", "Circulación", "Espacios comunes"],
+    description:
+      "La primera impresión empieza en la entrada. La limpieza cotidiana contribuye a que los lugares compartidos se mantengan agradables y bien presentados.",
+    cta: "Consultar por mi edificio",
+  },
+  {
+    number: "02",
+    title: "Oficinas",
+    tags: ["Áreas de trabajo", "Recepción", "Sectores compartidos"],
+    description:
+      "Un entorno cuidado acompaña la jornada. Contanos cómo es tu oficina para conversar sobre la limpieza de sus ambientes y la frecuencia que necesita.",
+    cta: "Consultar por mi oficina",
+  },
+  {
+    number: "03",
+    title: "Finales de obra",
+    tags: ["Terminaciones", "Superficies", "Entrega"],
+    description:
+      "Al terminar una obra o remodelación, la limpieza permite apreciar el espacio y dejarlo listo para su próximo uso. Contanos qué tipo de trabajo se realizó y qué sectores necesitan atención.",
+    cta: "Consultar por un final de obra",
+  },
+];
+---
+
+<section id="servicios" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+  <p class="mb-3 text-xs font-bold tracking-[0.2em] text-turquesa uppercase">
+    Nuestra propuesta
+  </p>
+  <h2
+    class="max-w-3xl font-heading text-2xl font-bold text-azul-profundo sm:text-3xl"
+  >
+    Una propuesta de limpieza que parte de las necesidades de cada lugar y de
+    las personas que lo usan
+  </h2>
+
+  <div
+    class="mt-14 divide-y divide-celeste-niebla border-t border-celeste-niebla"
+  >
+    {
+      services.map((service) => (
+        <div class="grid gap-4 py-10 lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10">
+          <span class="font-heading text-sm font-bold text-turquesa">
+            {/* {service.number} */}
+          </span>
+
+          <div>
+            <h3 class="font-heading text-xl font-bold text-azul-profundo">
+              {service.title}
+            </h3>
+            <ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold text-azul-profundo/50 uppercase">
+              {service.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="max-w-xl text-sm text-azul-profundo/80">
+              {service.description}
+            </p>
+            <a
+              href="#contacto"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-azul underline decoration-turquesa/50 underline-offset-4 transition-colors hover:text-turquesa"
+            >
+              {service.cta}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

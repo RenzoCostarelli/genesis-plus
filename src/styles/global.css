@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+	/* Paleta primaria */
+	--color-azul: #005a84;
+	--color-turquesa: #00b3ce;
+
+	/* Paleta secundaria */
+	--color-hielo: #eaf6f8;
+	--color-celeste-niebla: #d5ebf0;
+	--color-azul-profundo: #153d50;
+	--color-gris-claro: #f3f5f4;
+
+	--font-sans: "Open Sans", sans-serif;
+	--font-heading: "Lato", sans-serif;
+}
+
+body {
+	font-family: var(--font-sans);
+	color: var(--color-azul-profundo);
+}

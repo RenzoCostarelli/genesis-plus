@@ -1,0 +1,80 @@
+---
+const spaceTypes = ["Oficina", "Edificio o consorcio", "Final de obra", "Otro"];
+---
+
+<section id="contacto" class="bg-celeste-niebla/40 px-6 py-20 lg:px-8">
+	<div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-20">
+		<div>
+			<p class="mb-3 text-xs font-bold tracking-[0.2em] text-turquesa uppercase">Hablemos</p>
+			<h2 class="font-heading text-3xl font-bold text-azul-profundo sm:text-4xl">Contanos qué necesitas</h2>
+		</div>
+
+		<form class="grid gap-5 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
+			<div class="grid gap-5 sm:grid-cols-2">
+				<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
+					Tu nombre *
+					<input
+						type="text"
+						name="nombre"
+						required
+						placeholder="Nombre y apellido"
+						class="rounded-lg border border-celeste-niebla px-4 py-2.5 text-sm font-normal text-azul-profundo placeholder:text-azul-profundo/40 focus:border-turquesa focus:outline-none"
+					/>
+				</label>
+
+				<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
+					Email o teléfono *
+					<input
+						type="text"
+						name="contacto"
+						required
+						placeholder="¿Cómo te contactamos?"
+						class="rounded-lg border border-celeste-niebla px-4 py-2.5 text-sm font-normal text-azul-profundo placeholder:text-azul-profundo/40 focus:border-turquesa focus:outline-none"
+					/>
+				</label>
+
+				<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
+					Tipo de espacio *
+					<select
+						name="tipo_espacio"
+						required
+						class="rounded-lg border border-celeste-niebla px-4 py-2.5 text-sm font-normal text-azul-profundo focus:border-turquesa focus:outline-none"
+					>
+						<option value="" selected disabled>Seleccioná una opción</option>
+						{spaceTypes.map((type) => <option value={type}>{type}</option>)}
+					</select>
+				</label>
+
+				<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
+					Barrio o localidad *
+					<input
+						type="text"
+						name="ubicacion"
+						required
+						placeholder="Ubicación del espacio"
+						class="rounded-lg border border-celeste-niebla px-4 py-2.5 text-sm font-normal text-azul-profundo placeholder:text-azul-profundo/40 focus:border-turquesa focus:outline-none"
+					/>
+				</label>
+			</div>
+
+			<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
+				¿Qué necesitás? *
+				<textarea
+					name="mensaje"
+					required
+					rows="4"
+					placeholder="Contanos sobre el lugar, los sectores y la frecuencia que tenés en mente."
+					class="resize-none rounded-lg border border-celeste-niebla px-4 py-2.5 text-sm font-normal text-azul-profundo placeholder:text-azul-profundo/40 focus:border-turquesa focus:outline-none"
+				></textarea>
+			</label>
+
+			<button
+				type="submit"
+				class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-azul px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-azul-profundo"
+			>
+				Enviar consulta
+				<span aria-hidden="true">↗</span>
+			</button>
+		</form>
+	</div>
+</section>
