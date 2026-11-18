@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:4321/ -o \"C:/Users/renzo/AppData/Local/Temp/claude/c--dev-Genesis-Plus-genesis-plus/15701af9-b0fc-472f-b3e4-e0e765bf9fe8/scratchpad/page.html\")"
+    ]
+  }
+}

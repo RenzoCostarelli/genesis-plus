@@ -1,0 +1,14 @@
+---
+interface Props {
+	label: string;
+	tone?: "turquesa" | "white";
+	class?: string;
+}
+
+const { label, tone = "turquesa", class: className = "" } = Astro.props;
+---
+
+<p class:list={["mb-3 inline-flex items-center gap-3 text-xs font-thin tracking-[0.2em] uppercase", tone === "white" ? "text-white/70" : "text-turquesa", className]}>
+	<span class:list={["h-px w-6", tone === "white" ? "bg-white/70" : "bg-turquesa"]} aria-hidden="true"></span>
+	{label}
+</p>

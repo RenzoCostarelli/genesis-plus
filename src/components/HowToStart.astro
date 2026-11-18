@@ -1,4 +1,6 @@
 ---
+import Eyebrow from "./Eyebrow.astro";
+
 const steps = [
   {
     // number: "01",
@@ -30,11 +32,7 @@ const steps = [
       class="flex flex-col justify-between gap-6 sm:flex-row sm:items-center"
     >
       <div>
-        <p
-          class="mb-3 text-xs font-bold tracking-[0.2em] text-turquesa uppercase"
-        >
-          Cómo empezar
-        </p>
+        <Eyebrow label="Cómo empezar" />
         <h2
           class="font-heading text-2xl font-bold text-azul-profundo sm:text-3xl"
         >

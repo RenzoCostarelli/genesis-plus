@@ -1,4 +1,6 @@
 ---
+import Eyebrow from "./Eyebrow.astro";
+
 const services = [
   {
     number: "01",
@@ -28,11 +30,9 @@ const services = [
 ---
 
 <section id="servicios" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-  <p class="mb-3 text-xs font-bold tracking-[0.2em] text-turquesa uppercase">
-    Nuestra propuesta
-  </p>
+  <Eyebrow label="Espacios" />
   <h2
-    class="max-w-3xl font-heading text-2xl font-bold text-azul-profundo sm:text-3xl"
+    class="font-heading uppercase md:text-2xl font-medium text-azul-profundo text-balance tracking-[0.25em]"
   >
     Una propuesta de limpieza que parte de las necesidades de cada lugar y de
     las personas que lo usan
@@ -43,10 +43,8 @@ const services = [
   >
     {
       services.map((service) => (
-        <div class="grid gap-4 py-10 lg:grid-cols-[auto_1fr_2fr] lg:items-start lg:gap-10">
-          <span class="font-heading text-sm font-bold text-turquesa">
-            {/* {service.number} */}
-          </span>
+        <div class="grid gap-4 py-10 lg:grid-cols-2 lg:items-start lg:gap-10">
+
 
           <div>
             <h3 class="font-heading text-xl font-bold text-azul-profundo">
