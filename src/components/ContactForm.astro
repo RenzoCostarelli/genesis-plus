@@ -11,7 +11,7 @@ const spaceTypes = ["Oficina", "Edificio o consorcio", "Final de obra", "Otro"];
 			<h2 class="font-heading text-3xl font-bold text-azul-profundo sm:text-4xl">Contanos qué necesitas</h2>
 		</div>
 
-		<form class="grid gap-5 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
+		<form id="contact-form" class="grid gap-5 rounded-2xl bg-white p-6 shadow-sm sm:p-8">
 			<div class="grid gap-5 sm:grid-cols-2">
 				<label class="flex flex-col gap-1.5 text-sm font-semibold text-azul-profundo">
 					Tu nombre *
@@ -70,9 +70,12 @@ const spaceTypes = ["Oficina", "Edificio o consorcio", "Final de obra", "Otro"];
 				></textarea>
 			</label>
 
+			<p id="contact-form-status" class="hidden text-sm font-semibold" role="status"></p>
+
 			<button
 				type="submit"
-				class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-azul px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-azul-profundo"
+				id="contact-form-submit"
+				class="mt-2 inline-flex w-fit items-center gap-2 rounded-full bg-azul px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-azul-profundo disabled:cursor-not-allowed disabled:opacity-60"
 			>
 				Enviar consulta
 				<span aria-hidden="true">↗</span>
@@ -80,3 +83,42 @@ const spaceTypes = ["Oficina", "Edificio o consorcio", "Final de obra", "Otro"];
 		</form>
 	</div>
 </section>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>("#contact-form");
+	const submitButton = document.querySelector<HTMLButtonElement>("#contact-form-submit");
+	const status = document.querySelector<HTMLParagraphElement>("#contact-form-status");
+
+	form?.addEventListener("submit", async (event) => {
+		event.preventDefault();
+		if (!submitButton || !status) return;
+
+		submitButton.disabled = true;
+		status.classList.remove("hidden", "text-red-600", "text-green-600");
+		status.textContent = "Enviando...";
+		status.classList.add("text-azul-profundo/70");
+
+		try {
+			const response = await fetch("/api/contact", {
+				method: "POST",
+				body: new FormData(form),
+			});
+			const result = await response.json();
+
+			if (!response.ok) {
+				throw new Error(result.error ?? "No se pudo enviar la consulta.");
+			}
+
+			status.textContent = "¡Listo! Te vamos a contactar a la brevedad.";
+			status.classList.remove("text-azul-profundo/70");
+			status.classList.add("text-green-600");
+			form.reset();
+		} catch (error) {
+			status.textContent = error instanceof Error ? error.message : "No se pudo enviar la consulta.";
+			status.classList.remove("text-azul-profundo/70");
+			status.classList.add("text-red-600");
+		} finally {
+			submitButton.disabled = false;
+		}
+	});
+</script>
